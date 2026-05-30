@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator PPh Pasal 21 - Akurat & Ramah Awam</title>
+    <title>Kalkulator PPh Pasal 21 - Versi Perbaikan Final</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-amber-50/40 text-gray-800 min-h-screen py-8 px-4">
@@ -248,7 +248,6 @@
     </div>
 
     <script>
-        // Data Range Aturan TER PP 58/2023 (Kategori A, B, C)
         function dapatkanTarifTER(kategori, brutoBulanan) {
             if (brutoBulanan <= 5400000) return 0;
             if (kategori === "A") {
@@ -359,7 +358,7 @@
             return parseFloat(string.replace(/\./g, '')) || 0;
         }
 
-        // SOLUSI REVISI 3: Memperbaiki Bugs Kursor Melompat saat Mengetik (UX Caret Position)
+        // PENGAMAN KURSOR MELOMPAT (Saran 3)
         function handleInputMasking(e) {
             let target = e.target;
             let startPosition = target.selectionStart;
@@ -383,12 +382,11 @@
         document.getElementById('status_ptkp').addEventListener('change', jalankanKalkulasi);
 
         function jalankanKalkulasi() {
-            // SOLUSI REVISI 2: Mengambil Input Terpisah Antara Rutin & Bonus
             const gajiBulanan = parseNumberFromDots(document.getElementById('gaji_bulanan_input').value);
             const bonusTahunan = parseNumberFromDots(document.getElementById('bonus_tahunan_input').value);
             const iuranPensiun = parseNumberFromDots(document.getElementById('iuran_pensiun_input').value);
             
-            // Kalkulasi Total Bruto Realistis Setahun
+            // Menggabungkan total pendapatan bruto setahun secara dinamis
             const brutoSetahun = (gajiBulanan * 12) + bonusTahunan;
             document.getElementById('bruto_setahun_display').value = formatNumberWithDots(brutoSetahun);
 
@@ -399,7 +397,7 @@
             document.getElementById('nilai_ptkp').value = formatNumberWithDots(nilaiPtkp);
             document.getElementById('kategori_ter_display').value = "Kategori " + kategoriTER;
 
-            // A. Menghitung Neto Dinamis
+            // Hitung Biaya Jabatan & Neto
             const biayaJabatan = Math.min(brutoSetahun * 0.05, 6000000);
             document.getElementById('biaya_jabatan').value = formatNumberWithDots(biayaJabatan);
 
@@ -409,18 +407,11 @@
             document.getElementById('rincian_neto_angka').innerText = 
                 `Perhitungan: Rp${formatNumberWithDots(brutoSetahun)} (Bruto) - Rp${formatNumberWithDots(biayaJabatan)} (Biaya Jabatan) - Rp${formatNumberWithDots(iuranPensiun)} (Iuran) = Rp${formatNumberWithDots(netoSetahun)}`;
 
-            // C. Menghitung PKP Akurat dengan SOLUSI REVISI 5 (Bebas Angka Teks Minus)
+            // Hitung PKP Akurat (Bebas Minus - Saran 5)
             const pkpSetahun = Math.max(netoSetahun - nilaiPtkp, 0);
             document.getElementById('pkp').value = formatNumberWithDots(pkpSetahun);
             
             let hasilPenguranganNetoPtkp = netoSetahun - nilaiPtkp;
-            
-            // Mengamankan DOM Element Kesimpulan
-            const kesimpulanBox = document.getElementById('kesimpulan_box');
-            const kesimpulanStatus = document.getElementById('kesimpulan_status');
-            const kesimpulanDeskripsi = document.getElementById('kesimpulan_deskripsi');
-            const kesimpulanNominal = document.getElementById('kesimpulan_nominal');
-
             if (hasilPenguranganNetoPtkp < 0) {
                 document.getElementById('rincian_pkp_angka').innerHTML = 
                     `<span class="text-emerald-600 font-bold">Perhitungan: Rp${formatNumberWithDots(netoSetahun)} - Rp${formatNumberWithDots(nilaiPtkp)} = Rp${formatNumberWithDots(hasilPenguranganNetoPtkp)} <br>⚠️ (Pendapatan Neto di bawah Batas PTKP, maka nominal PKP disetel menjadi Rp0)</span>`;
@@ -429,7 +420,7 @@
                     `Perhitungan: Rp${formatNumberWithDots(netoSetahun)} (Neto) - Rp${formatNumberWithDots(nilaiPtkp)} (PTKP) = Rp${formatNumberWithDots(hasilPenguranganNetoPtkp)}`;
             }
 
-            // D. Hitung Logika Progresif Akurat (UU HPP Batas Absolut)
+            // Hitung Lapisan Progresif Pasal 17
             let sisaPkp = pkpSetahun;
             let dpp1 = Math.min(sisaPkp, 60000000); sisaPkp -= dpp1;
             let dpp2 = Math.min(sisaPkp, 190000000); sisaPkp -= dpp2;
@@ -458,7 +449,7 @@
 
             document.getElementById('total_pajak_tahunan').innerText = 'Rp ' + formatNumberWithDots(totalPajakProgresifSetahun);
 
-            // E. Hitung Potongan TER Masa (Jan - Nov Berdasarkan Gaji Bulanan Nyata)
+            // Hitung Potongan TER Bulanan (Jan - Nov)
             const tarifTER = dapatkanTarifTER(kategoriTER, gajiBulanan);
             const pajakTERPerBulan = gajiBulanan * tarifTER;
             const totalTER11Bulan = pajakTERPerBulan * 11;
@@ -468,7 +459,13 @@
             document.getElementById('pajak_ter_bulanan_display').innerText = 'Rp ' + formatNumberWithDots(pajakTERPerBulan);
             document.getElementById('total_ter_11bulan').innerText = 'Rp ' + formatNumberWithDots(totalTER11Bulan);
 
-            // F. Evaluasi Kotak Kesimpulan Akhir
+            // PEMBARUAN LOGIKA KESIMPULAN AKHIR
+            const kesimpulanBox = document.getElementById('kesimpulan_box');
+            const kesimpulanStatus = document.getElementById('kesimpulan_status');
+            const kesimpulanDeskripsi = document.getElementById('kesimpulan_deskripsi');
+            const kesimpulanNominal = document.getElementById('kesimpulan_nominal');
+
+            // Jika form masih kosong total
             if (brutoSetahun === 0) {
                 kesimpulanBox.className = "p-5 rounded-xl border border-amber-300 bg-amber-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-amber-900";
                 kesimpulanStatus.innerText = "Data Kosong";
@@ -479,12 +476,14 @@
 
             const selisihDesember = totalPajakProgresifSetahun - totalTER11Bulan;
 
+            // Jika statusnya Kurang Bayar atau Pas
             if (selisihDesember >= 0) {
                 kesimpulanBox.className = "p-5 rounded-xl border border-orange-300 bg-orange-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-orange-900 shadow-sm";
                 kesimpulanStatus.innerText = "Status: Kurang Bayar (Potongan Desember)";
                 kesimpulanDeskripsi.innerText = "Ini adalah sisa nominal akhir tahun yang wajib dipotong dari slip gaji Anda khusus pada bulan Desember agar hitungan setahun sesuai regulasi UU HPP.";
                 kesimpulanNominal.innerText = "Rp " + formatNumberWithDots(selisihDesember);
             } else {
+                // Jika statusnya Lebih Bayar
                 kesimpulanBox.className = "p-5 rounded-xl border border-emerald-300 bg-emerald-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-emerald-900 shadow-sm";
                 kesimpulanStatus.innerText = "Status: Lebih Bayar (Wajib Dikembalikan)";
                 kesimpulanDeskripsi.innerText = "Potongan TER bulanan (Jan-Nov) Anda melebihi kalkulasi total Pasal 17 setahun. Pihak perusahaan/pemotong kerja wajib mengembalikan kelebihan uang ini kepada Anda.";
@@ -492,7 +491,7 @@
             }
         }
 
-        // Set Nilai Default Awal
+        // Jalankan inisialisasi awal saat halaman dimuat
         document.getElementById('gaji_bulanan_input').value = "0";
         document.getElementById('bonus_tahunan_input').value = "0";
         document.getElementById('iuran_pensiun_input').value = "0";
