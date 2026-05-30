@@ -3,212 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator PPh Pasal 21 - Progresif & TER</title>
+    <title>Kalkulator PPh Pasal 21 - Tema Amber</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 min-h-screen py-8 px-4">
+<body class="bg-amber-50/40 text-gray-800 min-h-screen py-8 px-4">
 
-    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100">
-        <div class="bg-blue-700 text-white p-6 text-center">
-            <h1 class="text-2xl font-bold uppercase tracking-wide">Kalkulator PPh Pasal 21 (UU HPP & TER)</h1>
-            <p class="text-sm text-blue-100 mt-1">Simulasi Perhitungan Progresif Pasal 17 dan Tarif Efektif Rata-Rata (PP 58/2023)</p>
+    <div class="max-w-7xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden border border-amber-200">
+        <div class="bg-gradient-to-r from-orange-600 to-amber-500 text-white p-6 text-center shadow-md">
+            <h1 class="text-2xl md:text-3xl font-black uppercase tracking-wide">Kalkulator PPh Pasal 21 (UU HPP & TER)</h1>
+            <p class="text-xs md:text-sm text-amber-100 mt-1 font-medium">Simulasi Komprehensif Tarif Progresif Pasal 17 & Tarif Efektif Rata-Rata (PP 58/2023)</p>
         </div>
 
-        <div class="p-6 space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
+            
+            <div class="space-y-6">
                 
-                <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 space-y-4">
-                    <h2 class="text-lg font-semibold text-gray-700 border-b pb-2 border-gray-300">A. Data Penghasilan</h2>
+                <div class="bg-yellow-50/50 p-5 rounded-xl border border-amber-200 shadow-sm space-y-4">
+                    <div class="bg-orange-500 text-white px-4 py-2 rounded-lg font-bold text-sm uppercase tracking-wider">
+                        A. Data Penghasilan
+                    </div>
                     
                     <div>
-                        <label class="block text-sm font-medium text-gray-600 mb-1">Penghasilan Bruto (Setahun)</label>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Penghasilan Bruto (Setahun)</label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 text-sm">Rp</span>
-                            <input type="text" id="bruto_input" class="w-full pl-10 pr-3 py-2 border border-blue-400 bg-blue-50/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold" placeholder="0">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-amber-700 font-bold text-sm">Rp</span>
+                            <input type="text" id="bruto_input" class="w-full pl-10 pr-3 py-2 border-2 border-amber-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 font-bold text-gray-900" placeholder="0">
                         </div>
-                        <span class="text-xs text-gray-400 mt-1 block">■ Input manual (wajib diisi)</span>
+                        <span class="text-xs text-amber-700/80 mt-1 block font-medium">■ Silakan masukkan total pendapatan kotor Anda dalam setahun.</span>
                     </div>
 
-                    <div>
-                        <label class="block text-sm font-medium text-gray-600 mb-1">Biaya Jabatan (5%, maks Rp6.000.000)</label>
-                        <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 text-sm">Rp</span>
-                            <input type="text" id="biaya_jabatan" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-100 rounded-md font-medium text-gray-600">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-600 mb-1">Iuran Pensiun / BPJS TK (Setahun)</label>
-                        <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 text-sm">Rp</span>
-                            <input type="text" id="iuran_pensiun_input" class="w-full pl-10 pr-3 py-2 border border-blue-400 bg-blue-50/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold" placeholder="0">
-                        </div>
-                    </div>
-
-                    <div class="pt-2 border-t border-gray-200">
-                        <label class="block text-sm font-bold text-gray-700 mb-1">Penghasilan Neto (Setahun)</label>
-                        <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-700 font-bold text-sm">Rp</span>
-                            <input type="text" id="neto" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-emerald-300 bg-emerald-50 rounded-md font-bold text-emerald-700">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="space-y-6">
-                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 space-y-4">
-                        <h2 class="text-lg font-semibold text-gray-700 border-b pb-2 border-gray-300">B. Penghasilan Tidak Kena Pajak (PTKP)</h2>
-                        
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-600 mb-1">Status PTKP</label>
-                            <select id="status_ptkp" class="w-full px-3 py-2 border border-blue-400 bg-blue-50/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold text-gray-700">
-                                <option value="54000000" data-kategori="A" selected>TK/0 - Kategori TER A</option>
-                                <option value="58500000" data-kategori="A">TK/1 - Kategori TER A</option>
-                                <option value="63000000" data-kategori="B">TK/2 - Kategori TER B</option>
-                                <option value="67500000" data-kategori="B">TK/3 - Kategori TER B</option>
-                                <option value="58500000" data-kategori="A">K/0 - Kategori TER A</option>
-                                <option value="63000000" data-kategori="B">K/1 - Kategori TER B</option>
-                                <option value="67500000" data-kategori="B">K/2 - Kategori TER B</option>
-                                <option value="72000000" data-kategori="C">K/3 - Kategori TER C</option>
-                                <option value="112500000" data-kategori="A">K/I/0 - Kategori TER A</option>
-                                <option value="117000000" data-kategori="A">K/I/1 - Kategori TER A</option>
-                                <option value="121500000" data-kategori="B">K/I/2 - Kategori TER B</option>
-                                <option value="126000000" data-kategori="B">K/I/3 - Kategori TER B</option>
-                            </select>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Nilai PTKP</label>
-                                <input type="text" id="nilai_ptkp" disabled class="w-full px-3 py-2 border border-gray-300 bg-gray-100 rounded-md font-medium text-gray-600">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Kategori TER</label>
-                                <input type="text" id="kategori_ter_display" disabled class="w-full px-3 py-2 border border-gray-300 bg-blue-100 text-blue-700 font-bold rounded-md text-center">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 space-y-4">
-                        <h2 class="text-lg font-semibold text-gray-700 border-b pb-2 border-gray-300">C. Penghasilan Kena Pajak (PKP)</h2>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">Penghasilan Kena Pajak (Tahunan)</label>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Biaya Jabatan (5%, maks Rp6jt)</label>
                             <div class="relative">
-                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-700 font-bold text-sm">Rp</span>
-                                <input type="text" id="pkp" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-orange-300 bg-orange-50 rounded-md font-bold text-orange-700">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 text-sm">Rp</span>
+                                <input type="text" id="biaya_jabatan" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-amber-200 bg-amber-50/60 rounded-md font-semibold text-gray-600">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Iuran Pensiun / BPJS (Setahun)</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-amber-700 font-bold text-sm">Rp</span>
+                                <input type="text" id="iuran_pensiun_input" class="w-full pl-10 pr-3 py-2 border-2 border-amber-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 font-bold text-gray-900" placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t-2 border-dashed border-amber-200 space-y-2">
+                        <label class="block text-sm font-bold text-orange-700">Penghasilan Neto (Setahun)</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-orange-800 font-extrabold text-sm">Rp</span>
+                            <input type="text" id="neto" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-orange-300 bg-orange-100 rounded-md font-black text-orange-800 text-lg">
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-amber-200 text-xs text-gray-600 space-y-1">
+                            <span class="font-bold text-amber-800 block">💡 Rincian Rumus Penghasilan Neto:</span>
+                            <div class="font-mono bg-amber-50/50 p-1.5 rounded text-gray-700 overflow-x-auto">
+                                Neto = Bruto - Biaya Jabatan - Iuran
+                            </div>
+                            <div id="rincian_neto_angka" class="pt-1 text-gray-500 italic">
+                                Perhitungan: Rp0 - Rp0 - Rp0 = Rp0
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="bg-yellow-50/50 p-5 rounded-xl border border-amber-200 shadow-sm space-y-4">
+                    <div class="bg-orange-500 text-white px-4 py-2 rounded-lg font-bold text-sm uppercase tracking-wider">
+                        B. Penghasilan Tidak Kena Pajak (PTKP)
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Pilih Status PTKP Anda</label>
+                        <select id="status_ptkp" class="w-full px-3 py-2 border-2 border-amber-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 font-bold text-gray-700">
+                            <option value="54000000" data-kategori="A" selected>TK/0 - Tidak Kawin, 0 Tanggungan (TER A)</option>
+                            <option value="58500000" data-kategori="A">TK/1 - Tidak Kawin, 1 Tanggungan (TER A)</option>
+                            <option value="63000000" data-kategori="B">TK/2 - Tidak Kawin, 2 Tanggungan (TER B)</option>
+                            <option value="67500000" data-kategori="B">TK/3 - Tidak Kawin, 3 Tanggungan (TER B)</option>
+                            <option value="58500000" data-kategori="A">K/0 - Kawin, 0 Tanggungan (TER A)</option>
+                            <option value="63000000" data-kategori="B">K/1 - Kawin, 1 Tanggungan (TER B)</option>
+                            <option value="67500000" data-kategori="B">K/2 - Kawin, 2 Tanggungan (TER B)</option>
+                            <option value="72000000" data-kategori="C">K/3 - Kawin, 3 Tanggungan (TER C)</option>
+                            <option value="112500000" data-kategori="A">K/I/0 - Kawin, Istri Bekerja, 0 Tanggungan (TER A)</option>
+                            <option value="117000000" data-kategori="A">K/I/1 - Kawin, Istri Bekerja, 1 Tanggungan (TER A)</option>
+                            <option value="121500000" data-kategori="B">K/I/2 - Kawin, Istri Bekerja, 2 Tanggungan (TER B)</option>
+                            <option value="126000000" data-kategori="B">K/I/3 - Kawin, Istri Bekerja, 3 Tanggungan (TER B)</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Batas Nilai PTKP</label>
+                            <input type="text" id="nilai_ptkp" disabled class="w-full px-3 py-2 border border-amber-200 bg-amber-50/60 rounded-md font-bold text-gray-700">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Golongan TER</label>
+                            <input type="text" id="kategori_ter_display" disabled class="w-full px-3 py-2 border border-amber-200 bg-orange-100 text-orange-700 font-extrabold rounded-md text-center">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50/50 p-5 rounded-xl border border-amber-200 shadow-sm space-y-4">
+                    <div class="bg-orange-500 text-white px-4 py-2 rounded-lg font-bold text-sm uppercase tracking-wider">
+                        C. Penghasilan Kena Pajak (PKP)
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-orange-800 mb-1">Total Objek Penghasilan Kena Pajak (Setahun)</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-orange-900 font-black text-sm">Rp</span>
+                            <input type="text" id="pkp" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-orange-400 bg-orange-200 rounded-md font-black text-orange-900 text-lg">
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-amber-200 text-xs text-gray-600 space-y-1">
+                        <span class="font-bold text-amber-800 block">💡 Rincian Rumus Uang Kena Pajak (PKP):</span>
+                        <div class="font-mono bg-amber-50/50 p-1.5 rounded text-gray-700 overflow-x-auto">
+                            PKP = Penghasilan Neto - Batas PTKP
+                        </div>
+                        <div id="rincian_pkp_angka" class="pt-1 text-gray-500 italic">
+                            Perhitungan: Rp0 - Rp0 = Rp0
+                        </div>
+                        <p class="text-[11px] text-amber-700 pt-1 leading-relaxed">⚠️ *Catatan: Jika hasil Neto lebih kecil dari batas PTKP, Anda dianggap tidak wajib bayar pajak, dan nominal PKP otomatis disetel menjadi Rp0.*</p>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                <h2 class="text-lg font-semibold text-gray-700 border-b pb-4 border-gray-300 mb-4">D. Perhitungan Tarif Progresif Akhir Tahun (Pasal 17 UU HPP)</h2>
+            <div class="space-y-6">
                 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse text-sm">
-                        <thead>
-                            <tr class="bg-gray-200 text-gray-700 uppercase text-xs tracking-wider">
-                                <th class="p-3 border border-gray-300">Lapisan</th>
-                                <th class="p-3 border border-gray-300 text-right">Batas Bawah</th>
-                                <th class="p-3 border border-gray-300 text-right">Batas Atas</th>
-                                <th class="p-3 border border-gray-300 text-center">Tarif</th>
-                                <th class="p-3 border border-gray-300 text-right">DPP (Dasar Pengenaan)</th>
-                                <th class="p-3 border border-gray-300 text-right">Pajak Terutang</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200 font-medium text-gray-600">
-                            <tr>
-                                <td class="p-3 border border-gray-300 bg-white">Lapisan I</td>
-                                <td class="p-3 border border-gray-300 text-right bg-white">0</td>
-                                <td class="p-3 border border-gray-300 text-right bg-white">60.000.000</td>
-                                <td class="p-3 border border-gray-300 text-center bg-white">5%</td>
-                                <td id="dpp1" class="p-3 border border-gray-300 text-right bg-gray-100">0</td>
-                                <td id="pajak1" class="p-3 border border-gray-300 text-right bg-gray-100">0</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 border border-gray-300 bg-white">Lapisan II</td>
-                                <td class="p-3 border border-gray-300 text-right bg-white">60.000.000</td>
-                                <td class="p-3 border border-gray-300 text-right bg-white">250.000.000</td>
-                                <td class="p-3 border border-gray-300 text-center bg-white">15%</td>
-                                <td id="dpp2" class="p-3 border border-gray-300 text-right bg-gray-100">0</td>
-                                <td id="pajak2" class="p-3 border border-gray-300 text-right bg-gray-100">0</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 border border-gray-300 bg-white">Lapisan III</td>
-                                <td class="p-3 border border-gray-300 text-right bg-white">250.000.000</td>
-                                <td class="p-3 border border-gray-300 text-right bg-white">500.000.000</td>
-                                <td class="p-3 border border-gray-300 text-center bg-white">25%</td>
-                                <td id="dpp3" class="p-3 border border-gray-300 text-right bg-gray-100">0</td>
-                                <td id="pajak3" class="p-3 border border-gray-300 text-right bg-gray-100">0</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 border border-gray-300 bg-white">Lapisan IV</td>
-                                <td class="p-3 border border-gray-300 text-right bg-white">500.000.000</td>
-                                <td class="p-3 border border-gray-300 text-right bg-white">5.000.000.000</td>
-                                <td class="p-3 border border-gray-300 text-center bg-white">30%</td>
-                                <td id="dpp4" class="p-3 border border-gray-300 text-right bg-gray-100">0</td>
-                                <td id="pajak4" class="p-3 border border-gray-300 text-right bg-gray-100">0</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 border border-gray-300 bg-white">Lapisan V</td>
-                                <td class="p-3 border border-gray-300 text-right bg-white">5.000.000.000</td>
-                                <td class="p-3 border border-gray-300 text-right bg-white">Tak Terbatas</td>
-                                <td class="p-3 border border-gray-300 text-center bg-white">35%</td>
-                                <td id="dpp5" class="p-3 border border-gray-300 text-right bg-gray-100">0</td>
-                                <td id="pajak5" class="p-3 border border-gray-300 text-right bg-gray-100">0</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="bg-amber-50/30 p-5 rounded-xl border border-amber-200 shadow-sm">
+                    <div class="bg-orange-600 text-white px-4 py-2 rounded-lg font-bold text-sm uppercase tracking-wider mb-4">
+                        D. Distribusi Lapisan Pajak Progresif (Pasal 17)
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs md:text-sm">
+                            <thead>
+                                <tr class="bg-amber-200/80 text-amber-900 uppercase text-[11px] tracking-wider font-bold">
+                                    <th class="p-2.5 border border-amber-300">Level Tarif</th>
+                                    <th class="p-2.5 border border-amber-300 text-right">Range PKP</th>
+                                    <th class="p-2.5 border border-amber-300 text-center">Tarif</th>
+                                    <th class="p-2.5 border border-amber-300 text-right">Dasar Pajak (DPP)</th>
+                                    <th class="p-2.5 border border-amber-300 text-right">Pajak Terutang</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-amber-200 font-medium text-gray-700">
+                                <tr class="bg-white">
+                                    <td class="p-2.5 border border-amber-200">Lapisan I</td>
+                                    <td class="p-2.5 border border-amber-200 text-right">0 s.d 60jt</td>
+                                    <td class="p-2.5 border border-amber-200 text-center font-bold text-orange-600">5%</td>
+                                    <td id="dpp1" class="p-2.5 border border-amber-200 text-right bg-amber-50/40">0</td>
+                                    <td id="pajak1" class="p-2.5 border border-amber-200 text-right bg-amber-50/40 font-bold">0</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td class="p-2.5 border border-amber-200">Lapisan II</td>
+                                    <td class="p-2.5 border border-amber-200 text-right">60jt s.d 250jt</td>
+                                    <td class="p-2.5 border border-amber-200 text-center font-bold text-orange-600">15%</td>
+                                    <td id="dpp2" class="p-2.5 border border-amber-200 text-right bg-amber-50/40">0</td>
+                                    <td id="pajak2" class="p-2.5 border border-amber-200 text-right bg-amber-50/40 font-bold">0</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td class="p-2.5 border border-amber-200">Lapisan III</td>
+                                    <td class="p-2.5 border border-amber-200 text-right">250jt s.d 500jt</td>
+                                    <td class="p-2.5 border border-amber-200 text-center font-bold text-orange-600">25%</td>
+                                    <td id="dpp3" class="p-2.5 border border-amber-200 text-right bg-amber-50/40">0</td>
+                                    <td id="pajak3" class="p-2.5 border border-amber-200 text-right bg-amber-50/40 font-bold">0</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td class="p-2.5 border border-amber-200">Lapisan IV</td>
+                                    <td class="p-2.5 border border-amber-200 text-right">500jt s.d 5M</td>
+                                    <td class="p-2.5 border border-amber-200 text-center font-bold text-orange-600">30%</td>
+                                    <td id="dpp4" class="p-2.5 border border-amber-200 text-right bg-amber-50/40">0</td>
+                                    <td id="pajak4" class="p-2.5 border border-amber-200 text-right bg-amber-50/40 font-bold">0</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td class="p-2.5 border border-amber-200">Lapisan V</td>
+                                    <td class="p-2.5 border border-amber-200 text-right">> 5 Miliar</td>
+                                    <td class="p-2.5 border border-amber-200 text-center font-bold text-orange-600">35%</td>
+                                    <td id="dpp5" class="p-2.5 border border-amber-200 text-right bg-amber-50/40">0</td>
+                                    <td id="pajak5" class="p-2.5 border border-amber-200 text-right bg-amber-50/40 font-bold">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 p-3 bg-amber-100/70 border border-amber-300 rounded-lg flex justify-between items-center text-sm">
+                        <span class="font-bold text-amber-900">A. Total Kewajiban Riil Pajak (Setahun):</span>
+                        <span id="total_pajak_tahunan" class="text-base font-black text-amber-900">Rp0</span>
+                    </div>
                 </div>
-                <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg flex justify-between items-center">
-                    <span class="font-bold text-gray-700">TOTAL SEHARUSNYA TERUTANG (AHLI TAHUN):</span>
-                    <span id="total_pajak_tahunan" class="text-xl font-extrabold text-blue-700">Rp0</span>
-                </div>
-            </div>
 
-            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 space-y-4">
-                <h2 class="text-lg font-semibold text-gray-700 border-b pb-2 border-gray-300">E. Simulasi Pemotongan Masa Masa (Januari - November via TER)</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                    <div class="bg-white p-3 rounded border border-gray-200">
-                        <span class="text-gray-500 block">Estimasi Bruto / Bulan:</span>
-                        <span id="bruto_bulanan_display" class="font-bold text-base text-gray-800">Rp0</span>
+                <div class="bg-amber-50/30 p-5 rounded-xl border border-amber-200 shadow-sm space-y-3">
+                    <div class="bg-orange-600 text-white px-4 py-2 rounded-lg font-bold text-sm uppercase tracking-wider">
+                        E. Potongan Bulanan Masa Pajak (Jan - Nov via TER)
                     </div>
-                    <div class="bg-white p-3 rounded border border-gray-200">
-                        <span class="text-gray-500 block">Tarif Efektif (TER):</span>
-                        <span id="tarif_ter_display" class="font-bold text-base text-indigo-600">0%</span>
+                    <div class="grid grid-cols-3 gap-2 text-[11px] md:text-xs">
+                        <div class="bg-white p-2.5 rounded border border-amber-200">
+                            <span class="text-gray-500 block font-medium">Estimasi Bruto / Bln:</span>
+                            <span id="bruto_bulanan_display" class="font-bold text-gray-800">Rp0</span>
+                        </div>
+                        <div class="bg-white p-2.5 rounded border border-amber-200 text-center">
+                            <span class="text-gray-500 block font-medium">Tarif Efektif TER:</span>
+                            <span id="tarif_ter_display" class="font-black text-orange-600 text-sm">0%</span>
+                        </div>
+                        <div class="bg-white p-2.5 rounded border border-amber-200 text-right">
+                            <span class="text-gray-500 block font-medium">Potong Pajak / Bln:</span>
+                            <span id="pajak_ter_bulanan_display" class="font-bold text-gray-800">Rp0</span>
+                        </div>
                     </div>
-                    <div class="bg-white p-3 rounded border border-gray-200">
-                        <span class="text-gray-500 block">Potongan Pajak / Bulan:</span>
-                        <span id="pajak_ter_bulanan_display" class="font-bold text-base text-gray-800">Rp0</span>
+                    <div class="p-3 bg-orange-100/60 border border-orange-200 rounded-lg flex justify-between items-center text-xs md:text-sm">
+                        <span class="font-semibold text-orange-950">B. Total Terpotong Sementara (11 Bulan):</span>
+                        <span id="total_ter_11bulan" class="font-bold text-orange-900">Rp0</span>
                     </div>
                 </div>
-                <div class="p-4 bg-indigo-50 border border-indigo-100 rounded-lg flex justify-between items-center text-sm">
-                    <span class="font-semibold text-indigo-900">Total Telah Dipotong TER (Januari - November [11 Bulan]):</span>
-                    <span id="total_ter_11bulan" class="font-bold text-base text-indigo-700">Rp0</span>
-                </div>
-            </div>
 
-            <div id="kesimpulan_box" class="p-6 rounded-xl border flex flex-col md:flex-row justify-between items-start md:items-center gap-4 transition-all duration-300">
-                <div>
-                    <h2 class="text-xl font-bold uppercase tracking-wide" id="kesimpulan_status">Kurang/Lebih Bayar</h2>
-                    <p class="text-sm mt-1" id="kesimpulan_deskripsi">Menunggu kalkulasi data pemasukan...</p>
+                <div id="kesimpulan_box" class="p-5 rounded-xl border flex flex-col md:flex-row justify-between items-start md:items-center gap-4 transition-all duration-300 shadow-md">
+                    <div class="space-y-1">
+                        <h2 class="text-lg font-black uppercase tracking-wide" id="kesimpulan_status">Status Perhitungan</h2>
+                        <p class="text-xs font-medium leading-relaxed" id="kesimpulan_deskripsi">Silakan tentukan data gaji bruto di bagian kiri.</p>
+                    </div>
+                    <div class="text-right w-full md:w-auto border-t md:border-t-0 pt-2 md:pt-0 border-black/10">
+                        <span class="text-[10px] uppercase block font-bold tracking-wider opacity-75">Sisa Masa Desember (A - B):</span>
+                        <span id="kesimpulan_nominal" class="text-2xl font-black block">Rp0</span>
+                    </div>
                 </div>
-                <div class="text-right w-full md:w-auto border-t md:border-t-0 pt-3 md:pt-0">
-                    <span class="text-xs uppercase block font-semibold text-gray-500">Nominal Selisih (Masa Desember):</span>
-                    <span id="kesimpulan_nominal" class="text-3xl font-black block">Rp0</span>
-                </div>
+
             </div>
 
         </div>
     </div>
 
     <script>
-        // Array Data Mini TER Kategori A, B, C (Sesuai PP 58/2023)
-        // Disederhanakan untuk keperluan kalkulasi otomatis range umum karyawan biasa
+        // Logika Pengambilan Data Tarif Efektif Rata-Rata (PP 58/2023)
         function dapatkanTarifTER(kategori, brutoBulanan) {
             if (brutoBulanan <= 5400000) return 0;
-            
             if (kategori === "A") {
                 if (brutoBulanan <= 5400000) return 0;
                 if (brutoBulanan <= 5650000) return 0.0025;
@@ -309,9 +335,9 @@
             return 0;
         }
 
-        // Fungsi manipulasi Masking Ribuan (Titik)
+        // Fungsi format ribuan dengan pemisah titik
         function formatNumberWithDots(number) {
-            return new Intl.NumberFormat('id-ID', { minimumFractionDigits: 0 }).format(number);
+            return new Intl.NumberFormat('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(number);
         }
 
         function parseNumberFromDots(string) {
@@ -321,22 +347,18 @@
         function handleInputMasking(e) {
             let rawValue = e.target.value.replace(/\D/g, '');
             if(rawValue === '') rawValue = '0';
-            let parsed = parseFloat(rawValue);
-            e.target.value = formatNumberWithDots(parsed);
-            hitungUlangPajak();
+            e.target.value = formatNumberWithDots(parseFloat(rawValue));
+            jalankanKalkulasi();
         }
 
-        // Setup Event Listener
         document.getElementById('bruto_input').addEventListener('input', handleInputMasking);
         document.getElementById('iuran_pensiun_input').addEventListener('input', handleInputMasking);
-        document.getElementById('status_ptkp').addEventListener('change', hitungUlangPajak);
+        document.getElementById('status_ptkp').addEventListener('change', jalankanKalkulasi);
 
-        function hitungUlangPajak() {
-            // Ambil data murni angka dari input bertitik
+        function jalankanKalkulasi() {
             const brutoSetahun = parseNumberFromDots(document.getElementById('bruto_input').value);
             const iuranPensiun = parseNumberFromDots(document.getElementById('iuran_pensiun_input').value);
             
-            // Get data PTKP & Kategori TER
             const ptkpSelect = document.getElementById('status_ptkp');
             const nilaiPtkp = parseFloat(ptkpSelect.value);
             const kategoriTER = ptkpSelect.options[ptkpSelect.selectedIndex].getAttribute('data-kategori');
@@ -344,18 +366,26 @@
             document.getElementById('nilai_ptkp').value = formatNumberWithDots(nilaiPtkp);
             document.getElementById('kategori_ter_display').value = "Kategori " + kategoriTER;
 
-            // 1. Hitung Biaya Jabatan (5% max 6.000.000)
+            // A. Perhitungan Neto & Penjelasan Rincian
             const biayaJabatan = Math.min(brutoSetahun * 0.05, 6000000);
             document.getElementById('biaya_jabatan').value = formatNumberWithDots(biayaJabatan);
 
-            // 2. Hitung Neto & PKP
             const netoSetahun = brutoSetahun - biayaJabatan - iuranPensiun;
             document.getElementById('neto').value = formatNumberWithDots(netoSetahun);
+            
+            // Perbarui teks rincian rumus Neto agar dipahami awam
+            document.getElementById('rincian_neto_angka').innerText = 
+                `Perhitungan Nyata: Rp${formatNumberWithDots(brutoSetahun)} - Rp${formatNumberWithDots(biayaJabatan)} - Rp${formatNumberWithDots(iuranPensiun)} = Rp${formatNumberWithDots(netoSetahun)}`;
 
+            // C. Perhitungan PKP & Rincian
             const pkpSetahun = Math.max(netoSetahun - nilaiPtkp, 0);
             document.getElementById('pkp').value = formatNumberWithDots(pkpSetahun);
+            
+            // Perbarui teks rincian rumus PKP
+            document.getElementById('rincian_pkp_angka').innerText = 
+                `Perhitungan Nyata: Rp${formatNumberWithDots(netoSetahun)} (Neto) - Rp${formatNumberWithDots(nilaiPtkp)} (Batas PTKP) = Rp${formatNumberWithDots(netoSetahun - nilaiPtkp)}`;
 
-            // 3. Hitung Progresif Tahunan Pasal 17
+            // D. Hitung Lapisan Progresif Pasal 17
             let sisaPkp = pkpSetahun;
             const lapisan = [
                 { tarif: 0.05, batas: 60000000 },
@@ -380,7 +410,7 @@
             });
             document.getElementById('total_pajak_tahunan').innerText = 'Rp ' + formatNumberWithDots(totalPajakProgresifSetahun);
 
-            // 4. Hitung TER Masa (Januari - November)
+            // E. Hitung Potongan TER Masa (Jan - Nov)
             const brutoBulanan = brutoSetahun / 12;
             const tarifTER = dapatkanTarifTER(kategoriTER, brutoBulanan);
             const pajakTERPerBulan = brutoBulanan * tarifTER;
@@ -391,16 +421,16 @@
             document.getElementById('pajak_ter_bulanan_display').innerText = 'Rp ' + formatNumberWithDots(pajakTERPerBulan);
             document.getElementById('total_ter_11bulan').innerText = 'Rp ' + formatNumberWithDots(totalTER11Bulan);
 
-            // 5. Kesimpulan & Penentuan Pajak Akhir Bulan Desember (Selisih)
+            // F. Kotak Kesimpulan Akhir
             const kesimpulanBox = document.getElementById('kesimpulan_box');
             const kesimpulanStatus = document.getElementById('kesimpulan_status');
             const kesimpulanDeskripsi = document.getElementById('kesimpulan_deskripsi');
             const kesimpulanNominal = document.getElementById('kesimpulan_nominal');
 
             if (brutoSetahun === 0) {
-                kesimpulanBox.className = "p-6 rounded-xl border border-gray-200 bg-gray-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4";
+                kesimpulanBox.className = "p-5 rounded-xl border border-amber-300 bg-amber-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-amber-900";
                 kesimpulanStatus.innerText = "Data Kosong";
-                kesimpulanDeskripsi.innerText = "Masukkan nominal Penghasilan Bruto untuk melihat hasil analisa.";
+                kesimpulanDeskripsi.innerText = "Silakan masukkan angka Pendapatan Bruto Anda pada kolom kiri.";
                 kesimpulanNominal.innerText = "Rp 0";
                 return;
             }
@@ -408,24 +438,24 @@
             const selisihDesember = totalPajakProgresifSetahun - totalTER11Bulan;
 
             if (selisihDesember >= 0) {
-                // Kurang Bayar (Normal terjadi pada pemotongan Masa Desember)
-                kesimpulanBox.className = "p-6 rounded-xl border border-orange-200 bg-orange-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-orange-900";
-                kesimpulanStatus.innerText = "Kurang Bayar (Potongan Desember)";
-                kesimpulanDeskripsi.innerText = "Nilai yang wajib dipotong oleh perusahaan dari gaji Anda khusus pada bulan Desember agar klop dengan Pasal 17.";
+                // Kurang Bayar (Potongan normal Masa Desember)
+                kesimpulanBox.className = "p-5 rounded-xl border border-orange-300 bg-orange-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-orange-900 shadow-sm";
+                kesimpulanStatus.innerText = "Status: Kurang Bayar (Potongan Desember)";
+                kesimpulanDeskripsi.innerText = "Bagus! Ini adalah nominal sisa yang wajib dipotong dari slip gaji Anda khusus pada bulan Desember agar akumulasi setahun genap.";
                 kesimpulanNominal.innerText = "Rp " + formatNumberWithDots(selisihDesember);
             } else {
-                // Lebih Bayar (Bisa terjadi jika tengah tahun pendapatan drop drastis)
-                kesimpulanBox.className = "p-6 rounded-xl border border-emerald-200 bg-emerald-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-emerald-900";
-                kesimpulanStatus.innerText = "Lebih Bayar (Akan Dikembalikan)";
-                kesimpulanDeskripsi.innerText = "Pajak yang dipotong via TER 11 bulan kelebihan dibanding setahunnya. Perusahaan wajib mengembalikan selisih ini ke pegawai.";
+                // Lebih Bayar
+                kesimpulanBox.className = "p-5 rounded-xl border border-emerald-300 bg-emerald-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-emerald-900 shadow-sm";
+                kesimpulanStatus.innerText = "Status: Lebih Bayar (Wajib Dikembalikan)";
+                kesimpulanDeskripsi.innerText = "Pajak Anda yang sudah dipotong melalui metode TER selama 11 bulan ternyata melebihi kalkulasi final Pasal 17. Perusahaan wajib mengembalikan uang ini ke Anda.";
                 kesimpulanNominal.innerText = "Rp " + formatNumberWithDots(Math.abs(selisihDesember));
             }
         }
 
-        // Jalankan inisialisasi awal agar tampilan default rapi
+        // Set nilai standar awal saat halaman web dimuat
         document.getElementById('bruto_input').value = "0";
         document.getElementById('iuran_pensiun_input').value = "0";
-        hitungUlangPajak();
+        jalankanKalkulasi();
     </script>
 </body>
 </html>
