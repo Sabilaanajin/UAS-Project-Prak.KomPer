@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator PPh Pasal 21 - Tema Amber</title>
+    <title>Kalkulator PPh Pasal 21 - Akurat & Ramah Awam</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-amber-50/40 text-gray-800 min-h-screen py-8 px-4">
@@ -11,7 +11,7 @@
     <div class="max-w-7xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden border border-amber-200">
         <div class="bg-gradient-to-r from-orange-600 to-amber-500 text-white p-6 text-center shadow-md">
             <h1 class="text-2xl md:text-3xl font-black uppercase tracking-wide">Kalkulator PPh Pasal 21 (UU HPP & TER)</h1>
-            <p class="text-xs md:text-sm text-amber-100 mt-1 font-medium">Simulasi Komprehensif Tarif Progresif Pasal 17 & Tarif Efektif Rata-Rata (PP 58/2023)</p>
+            <p class="text-xs md:text-sm text-amber-100 mt-1 font-medium">Simulasi Akurat Sesuai PMK 168/2023 & Peraturan Pemerintah No. 58/2023</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
@@ -20,29 +20,46 @@
                 
                 <div class="bg-yellow-50/50 p-5 rounded-xl border border-amber-200 shadow-sm space-y-4">
                     <div class="bg-orange-500 text-white px-4 py-2 rounded-lg font-bold text-sm uppercase tracking-wider">
-                        A. Data Penghasilan
+                        A. Data Penghasilan & Komponen Gaji
                     </div>
                     
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">Penghasilan Bruto (Setahun)</label>
-                        <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-amber-700 font-bold text-sm">Rp</span>
-                            <input type="text" id="bruto_input" class="w-full pl-10 pr-3 py-2 border-2 border-amber-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 font-bold text-gray-900" placeholder="0">
-                        </div>
-                        <span class="text-xs text-amber-700/80 mt-1 block font-medium">■ Silakan masukkan total pendapatan kotor Anda dalam setahun.</span>
-                    </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-600 mb-1">Biaya Jabatan (5%, maks Rp6jt)</label>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Gaji Pokok + Tunjangan (Per Bulan)</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-amber-700 font-bold text-sm">Rp</span>
+                                <input type="text" id="gaji_bulanan_input" class="w-full pl-10 pr-3 py-2 border-2 border-amber-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 font-bold text-gray-900" placeholder="0">
+                            </div>
+                            <span class="text-[11px] text-amber-800/80 mt-1 block leading-tight">■ Pendapatan rutin bulanan yang menjadi dasar potongan TER (Jan-Nov).</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Total THR / Bonus (Dalam Setahun)</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-amber-700 font-bold text-sm">Rp</span>
+                                <input type="text" id="bonus_tahunan_input" class="w-full pl-10 pr-3 py-2 border-2 border-amber-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 font-bold text-gray-900" placeholder="0">
+                            </div>
+                            <span class="text-[11px] text-amber-800/80 mt-1 block leading-tight">■ Pendapatan tidak rutin tahunan (Hanya dihitung pada Pasal 17 Desember).</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Total Bruto Setahun</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 text-sm">Rp</span>
+                                <input type="text" id="bruto_setahun_display" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-amber-200 bg-amber-100/60 font-bold text-gray-700 rounded-md">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Biaya Jabatan (Maks 6jt)</label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 text-sm">Rp</span>
                                 <input type="text" id="biaya_jabatan" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-amber-200 bg-amber-50/60 rounded-md font-semibold text-gray-600">
                             </div>
                         </div>
-
                         <div>
-                            <label class="block text-sm font-medium text-gray-600 mb-1">Iuran Pensiun / BPJS (Setahun)</label>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Iuran Pensiun / JHT (Setahun)</label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-amber-700 font-bold text-sm">Rp</span>
                                 <input type="text" id="iuran_pensiun_input" class="w-full pl-10 pr-3 py-2 border-2 border-amber-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 font-bold text-gray-900" placeholder="0">
@@ -56,12 +73,12 @@
                             <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-orange-800 font-extrabold text-sm">Rp</span>
                             <input type="text" id="neto" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-orange-300 bg-orange-100 rounded-md font-black text-orange-800 text-lg">
                         </div>
-                        <div class="bg-white p-3 rounded-lg border border-amber-200 text-xs text-gray-600 space-y-1">
-                            <span class="font-bold text-amber-800 block">💡 Rincian Rumus Penghasilan Neto:</span>
-                            <div class="font-mono bg-amber-50/50 p-1.5 rounded text-gray-700 overflow-x-auto">
-                                Neto = Bruto - Biaya Jabatan - Iuran
+                        <div class="bg-white p-3 rounded-lg border border-amber-200 text-xs text-gray-600 space-y-1 shadow-inner">
+                            <span class="font-bold text-amber-800 block">💡 Cara Menghitung Penghasilan Neto:</span>
+                            <div class="font-mono bg-amber-50/60 p-1.5 rounded text-gray-700 text-[11px]">
+                                Neto = Total Bruto Setahun - Biaya Jabatan - Iuran Pensiun
                             </div>
-                            <div id="rincian_neto_angka" class="pt-1 text-gray-500 italic">
+                            <div id="rincian_neto_angka" class="pt-1 text-orange-700 font-medium italic">
                                 Perhitungan: Rp0 - Rp0 - Rp0 = Rp0
                             </div>
                         </div>
@@ -74,7 +91,7 @@
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">Pilih Status PTKP Anda</label>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Status Kategori PTKP</label>
                         <select id="status_ptkp" class="w-full px-3 py-2 border-2 border-amber-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 font-bold text-gray-700">
                             <option value="54000000" data-kategori="A" selected>TK/0 - Tidak Kawin, 0 Tanggungan (TER A)</option>
                             <option value="58500000" data-kategori="A">TK/1 - Tidak Kawin, 1 Tanggungan (TER A)</option>
@@ -93,11 +110,11 @@
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-600 mb-1">Batas Nilai PTKP</label>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Nilai Batas PTKP</label>
                             <input type="text" id="nilai_ptkp" disabled class="w-full px-3 py-2 border border-amber-200 bg-amber-50/60 rounded-md font-bold text-gray-700">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-600 mb-1">Golongan TER</label>
+                            <label class="block text-sm font-medium text-gray-600 mb-1">Kategori TER PP 58</label>
                             <input type="text" id="kategori_ter_display" disabled class="w-full px-3 py-2 border border-amber-200 bg-orange-100 text-orange-700 font-extrabold rounded-md text-center">
                         </div>
                     </div>
@@ -108,21 +125,20 @@
                         C. Penghasilan Kena Pajak (PKP)
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-orange-800 mb-1">Total Objek Penghasilan Kena Pajak (Setahun)</label>
+                        <label class="block text-sm font-bold text-orange-800 mb-1">Dikenakan Pajak Progresif Terhadap Nominal:</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-orange-900 font-black text-sm">Rp</span>
                             <input type="text" id="pkp" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-orange-400 bg-orange-200 rounded-md font-black text-orange-900 text-lg">
                         </div>
                     </div>
-                    <div class="bg-white p-3 rounded-lg border border-amber-200 text-xs text-gray-600 space-y-1">
-                        <span class="font-bold text-amber-800 block">💡 Rincian Rumus Uang Kena Pajak (PKP):</span>
-                        <div class="font-mono bg-amber-50/50 p-1.5 rounded text-gray-700 overflow-x-auto">
+                    <div class="bg-white p-3 rounded-lg border border-amber-200 text-xs text-gray-600 space-y-1 shadow-inner">
+                        <span class="font-bold text-amber-800 block">💡 Cara Menghitung Dasar Pengenaan Pajak (PKP):</span>
+                        <div class="font-mono bg-amber-50/60 p-1.5 rounded text-gray-700 text-[11px]">
                             PKP = Penghasilan Neto - Batas PTKP
                         </div>
-                        <div id="rincian_pkp_angka" class="pt-1 text-gray-500 italic">
+                        <div id="rincian_pkp_angka" class="pt-1 text-orange-700 font-medium italic">
                             Perhitungan: Rp0 - Rp0 = Rp0
                         </div>
-                        <p class="text-[11px] text-amber-700 pt-1 leading-relaxed">⚠️ *Catatan: Jika hasil Neto lebih kecil dari batas PTKP, Anda dianggap tidak wajib bayar pajak, dan nominal PKP otomatis disetel menjadi Rp0.*</p>
                     </div>
                 </div>
 
@@ -132,52 +148,52 @@
                 
                 <div class="bg-amber-50/30 p-5 rounded-xl border border-amber-200 shadow-sm">
                     <div class="bg-orange-600 text-white px-4 py-2 rounded-lg font-bold text-sm uppercase tracking-wider mb-4">
-                        D. Distribusi Lapisan Pajak Progresif (Pasal 17)
+                        D. Perhitungan Lapisan Progresif Akhir Tahun (Pasal 17)
                     </div>
                     
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse text-xs md:text-sm">
                             <thead>
                                 <tr class="bg-amber-200/80 text-amber-900 uppercase text-[11px] tracking-wider font-bold">
-                                    <th class="p-2.5 border border-amber-300">Level Tarif</th>
-                                    <th class="p-2.5 border border-amber-300 text-right">Range PKP</th>
+                                    <th class="p-2.5 border border-amber-300">Lapisan</th>
+                                    <th class="p-2.5 border border-amber-300 text-right">Range Aturan</th>
                                     <th class="p-2.5 border border-amber-300 text-center">Tarif</th>
-                                    <th class="p-2.5 border border-amber-300 text-right">Dasar Pajak (DPP)</th>
+                                    <th class="p-2.5 border border-amber-300 text-right">DPP Lapisan</th>
                                     <th class="p-2.5 border border-amber-300 text-right">Pajak Terutang</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-amber-200 font-medium text-gray-700">
                                 <tr class="bg-white">
-                                    <td class="p-2.5 border border-amber-200">Lapisan I</td>
-                                    <td class="p-2.5 border border-amber-200 text-right">0 s.d 60jt</td>
+                                    <td class="p-2.5 border border-amber-200 font-semibold">Lapisan I</td>
+                                    <td class="p-2.5 border border-amber-200 text-right text-gray-500">0 s.d 60jt</td>
                                     <td class="p-2.5 border border-amber-200 text-center font-bold text-orange-600">5%</td>
                                     <td id="dpp1" class="p-2.5 border border-amber-200 text-right bg-amber-50/40">0</td>
                                     <td id="pajak1" class="p-2.5 border border-amber-200 text-right bg-amber-50/40 font-bold">0</td>
                                 </tr>
                                 <tr class="bg-white">
-                                    <td class="p-2.5 border border-amber-200">Lapisan II</td>
-                                    <td class="p-2.5 border border-amber-200 text-right">60jt s.d 250jt</td>
+                                    <td class="p-2.5 border border-amber-200 font-semibold">Lapisan II</td>
+                                    <td class="p-2.5 border border-amber-200 text-right text-gray-500">> 60jt s.d 250jt</td>
                                     <td class="p-2.5 border border-amber-200 text-center font-bold text-orange-600">15%</td>
                                     <td id="dpp2" class="p-2.5 border border-amber-200 text-right bg-amber-50/40">0</td>
                                     <td id="pajak2" class="p-2.5 border border-amber-200 text-right bg-amber-50/40 font-bold">0</td>
                                 </tr>
                                 <tr class="bg-white">
-                                    <td class="p-2.5 border border-amber-200">Lapisan III</td>
-                                    <td class="p-2.5 border border-amber-200 text-right">250jt s.d 500jt</td>
+                                    <td class="p-2.5 border border-amber-200 font-semibold">Lapisan III</td>
+                                    <td class="p-2.5 border border-amber-200 text-right text-gray-500">> 250jt s.d 500jt</td>
                                     <td class="p-2.5 border border-amber-200 text-center font-bold text-orange-600">25%</td>
                                     <td id="dpp3" class="p-2.5 border border-amber-200 text-right bg-amber-50/40">0</td>
                                     <td id="pajak3" class="p-2.5 border border-amber-200 text-right bg-amber-50/40 font-bold">0</td>
                                 </tr>
                                 <tr class="bg-white">
-                                    <td class="p-2.5 border border-amber-200">Lapisan IV</td>
-                                    <td class="p-2.5 border border-amber-200 text-right">500jt s.d 5M</td>
+                                    <td class="p-2.5 border border-amber-200 font-semibold">Lapisan IV</td>
+                                    <td class="p-2.5 border border-amber-200 text-right text-gray-500">> 500jt s.d 5M</td>
                                     <td class="p-2.5 border border-amber-200 text-center font-bold text-orange-600">30%</td>
                                     <td id="dpp4" class="p-2.5 border border-amber-200 text-right bg-amber-50/40">0</td>
                                     <td id="pajak4" class="p-2.5 border border-amber-200 text-right bg-amber-50/40 font-bold">0</td>
                                 </tr>
                                 <tr class="bg-white">
-                                    <td class="p-2.5 border border-amber-200">Lapisan V</td>
-                                    <td class="p-2.5 border border-amber-200 text-right">> 5 Miliar</td>
+                                    <td class="p-2.5 border border-amber-200 font-semibold">Lapisan V</td>
+                                    <td class="p-2.5 border border-amber-200 text-right text-gray-500">> 5 Miliar</td>
                                     <td class="p-2.5 border border-amber-200 text-center font-bold text-orange-600">35%</td>
                                     <td id="dpp5" class="p-2.5 border border-amber-200 text-right bg-amber-50/40">0</td>
                                     <td id="pajak5" class="p-2.5 border border-amber-200 text-right bg-amber-50/40 font-bold">0</td>
@@ -185,19 +201,19 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="mt-4 p-3 bg-amber-100/70 border border-amber-300 rounded-lg flex justify-between items-center text-sm">
-                        <span class="font-bold text-amber-900">A. Total Kewajiban Riil Pajak (Setahun):</span>
-                        <span id="total_pajak_tahunan" class="text-base font-black text-amber-900">Rp0</span>
+                    <div class="mt-4 p-3 bg-amber-100/70 border border-amber-300 rounded-lg flex justify-between items-center text-sm shadow-inner">
+                        <span class="font-bold text-amber-900">Total PPh 21 Riil Seharusnya (Setahun):</span>
+                        <span id="total_pajak_tahunan" class="text-base font-black text-amber-950">Rp0</span>
                     </div>
                 </div>
 
                 <div class="bg-amber-50/30 p-5 rounded-xl border border-amber-200 shadow-sm space-y-3">
                     <div class="bg-orange-600 text-white px-4 py-2 rounded-lg font-bold text-sm uppercase tracking-wider">
-                        E. Potongan Bulanan Masa Pajak (Jan - Nov via TER)
+                        E. Akumulasi Potongan Bulanan Masa Pajak (Jan - Nov via TER)
                     </div>
                     <div class="grid grid-cols-3 gap-2 text-[11px] md:text-xs">
                         <div class="bg-white p-2.5 rounded border border-amber-200">
-                            <span class="text-gray-500 block font-medium">Estimasi Bruto / Bln:</span>
+                            <span class="text-gray-500 block font-medium">Gaji Rutin / Bln:</span>
                             <span id="bruto_bulanan_display" class="font-bold text-gray-800">Rp0</span>
                         </div>
                         <div class="bg-white p-2.5 rounded border border-amber-200 text-center">
@@ -209,8 +225,8 @@
                             <span id="pajak_ter_bulanan_display" class="font-bold text-gray-800">Rp0</span>
                         </div>
                     </div>
-                    <div class="p-3 bg-orange-100/60 border border-orange-200 rounded-lg flex justify-between items-center text-xs md:text-sm">
-                        <span class="font-semibold text-orange-950">B. Total Terpotong Sementara (11 Bulan):</span>
+                    <div class="p-3 bg-orange-100/60 border border-orange-200 rounded-lg flex justify-between items-center text-xs md:text-sm shadow-inner">
+                        <span class="font-semibold text-orange-950">Total Telah Terpotong Sementara (11 Bulan):</span>
                         <span id="total_ter_11bulan" class="font-bold text-orange-900">Rp0</span>
                     </div>
                 </div>
@@ -218,10 +234,10 @@
                 <div id="kesimpulan_box" class="p-5 rounded-xl border flex flex-col md:flex-row justify-between items-start md:items-center gap-4 transition-all duration-300 shadow-md">
                     <div class="space-y-1">
                         <h2 class="text-lg font-black uppercase tracking-wide" id="kesimpulan_status">Status Perhitungan</h2>
-                        <p class="text-xs font-medium leading-relaxed" id="kesimpulan_deskripsi">Silakan tentukan data gaji bruto di bagian kiri.</p>
+                        <p class="text-xs font-medium leading-relaxed" id="kesimpluan_deskripsi" id="kesimpulan_deskripsi">Silakan masukkan data pendapatan bruto di kolom kiri.</p>
                     </div>
                     <div class="text-right w-full md:w-auto border-t md:border-t-0 pt-2 md:pt-0 border-black/10">
-                        <span class="text-[10px] uppercase block font-bold tracking-wider opacity-75">Sisa Masa Desember (A - B):</span>
+                        <span class="text-[10px] uppercase block font-bold tracking-wider opacity-75">Sisa Pemotongan Bulan Desember:</span>
                         <span id="kesimpulan_nominal" class="text-2xl font-black block">Rp0</span>
                     </div>
                 </div>
@@ -232,7 +248,7 @@
     </div>
 
     <script>
-        // Logika Pengambilan Data Tarif Efektif Rata-Rata (PP 58/2023)
+        // Data Range Aturan TER PP 58/2023 (Kategori A, B, C)
         function dapatkanTarifTER(kategori, brutoBulanan) {
             if (brutoBulanan <= 5400000) return 0;
             if (kategori === "A") {
@@ -335,7 +351,6 @@
             return 0;
         }
 
-        // Fungsi format ribuan dengan pemisah titik
         function formatNumberWithDots(number) {
             return new Intl.NumberFormat('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(number);
         }
@@ -344,21 +359,39 @@
             return parseFloat(string.replace(/\./g, '')) || 0;
         }
 
+        // SOLUSI SARAN 3: Memperbaiki Bugs Kursor Melompat saat Mengetik (UX Caret Position)
         function handleInputMasking(e) {
-            let rawValue = e.target.value.replace(/\D/g, '');
+            let target = e.target;
+            let startPosition = target.selectionStart;
+            let oldLength = target.value.length;
+
+            let rawValue = target.value.replace(/\D/g, '');
             if(rawValue === '') rawValue = '0';
-            e.target.value = formatNumberWithDots(parseFloat(rawValue));
+            
+            let formatted = formatNumberWithDots(parseFloat(rawValue));
+            target.value = formatted;
+
+            let newLength = formatted.length;
+            target.selectionStart = target.selectionEnd = startPosition + (newLength - oldLength);
+
             jalankanKalkulasi();
         }
 
-        document.getElementById('bruto_input').addEventListener('input', handleInputMasking);
+        document.getElementById('gaji_bulanan_input').addEventListener('input', handleInputMasking);
+        document.getElementById('bonus_tahunan_input').addEventListener('input', handleInputMasking);
         document.getElementById('iuran_pensiun_input').addEventListener('input', handleInputMasking);
         document.getElementById('status_ptkp').addEventListener('change', jalankanKalkulasi);
 
         function jalankanKalkulasi() {
-            const brutoSetahun = parseNumberFromDots(document.getElementById('bruto_input').value);
+            // SARAN 2: Mengambil Input Terpisah
+            const gajiBulanan = parseNumberFromDots(document.getElementById('gaji_bulanan_input').value);
+            const bonusTahunan = parseNumberFromDots(document.getElementById('bonus_tahunan_input').value);
             const iuranPensiun = parseNumberFromDots(document.getElementById('iuran_pensiun_input').value);
             
+            // Kalkulasi Total Bruto Realistis
+            const brutoSetahun = (gajiBulanan * 12) + bonusTahunan;
+            document.getElementById('bruto_setahun_display').value = formatNumberWithDots(brutoSetahun);
+
             const ptkpSelect = document.getElementById('status_ptkp');
             const nilaiPtkp = parseFloat(ptkpSelect.value);
             const kategoriTER = ptkpSelect.options[ptkpSelect.selectedIndex].getAttribute('data-kategori');
@@ -366,57 +399,64 @@
             document.getElementById('nilai_ptkp').value = formatNumberWithDots(nilaiPtkp);
             document.getElementById('kategori_ter_display').value = "Kategori " + kategoriTER;
 
-            // A. Perhitungan Neto & Penjelasan Rincian
+            // A. Menghitung Neto Dinamis
             const biayaJabatan = Math.min(brutoSetahun * 0.05, 6000000);
             document.getElementById('biaya_jabatan').value = formatNumberWithDots(biayaJabatan);
 
             const netoSetahun = brutoSetahun - biayaJabatan - iuranPensiun;
             document.getElementById('neto').value = formatNumberWithDots(netoSetahun);
             
-            // Perbarui teks rincian rumus Neto agar dipahami awam
             document.getElementById('rincian_neto_angka').innerText = 
-                `Perhitungan Nyata: Rp${formatNumberWithDots(brutoSetahun)} - Rp${formatNumberWithDots(biayaJabatan)} - Rp${formatNumberWithDots(iuranPensiun)} = Rp${formatNumberWithDots(netoSetahun)}`;
+                `Perhitungan: Rp${formatNumberWithDots(brutoSetahun)} (Bruto) - Rp${formatNumberWithDots(biayaJabatan)} (Biaya Jabatan) - Rp${formatNumberWithDots(iuranPensiun)} (Iuran) = Rp${formatNumberWithDots(netoSetahun)}`;
 
-            // C. Perhitungan PKP & Rincian
+            // C. Menghitung PKP Akurat dengan SOLUSI SARAN 5 (Bebas Angka Teks Minus)
             const pkpSetahun = Math.max(netoSetahun - nilaiPtkp, 0);
             document.getElementById('pkp').value = formatNumberWithDots(pkpSetahun);
             
-            // Perbarui teks rincian rumus PKP
-            document.getElementById('rincian_pkp_angka').innerText = 
-                `Perhitungan Nyata: Rp${formatNumberWithDots(netoSetahun)} (Neto) - Rp${formatNumberWithDots(nilaiPtkp)} (Batas PTKP) = Rp${formatNumberWithDots(netoSetahun - nilaiPtkp)}`;
+            let hasilPenguranganNetoPtkp = netoSetahun - nilaiPtkp;
+            if (hasilPenguranganNetoPtkp < 0) {
+                document.getElementById('rincian_pkp_angka').innerHTML = 
+                    `<span class="text-emerald-600 font-bold">Perhitungan: Rp${formatNumberWithDots(netoSetahun)} - Rp${formatNumberWithDots(nilaiPtkp)} = Rp${formatNumberWithDots(hasilPenguranganNetoPtkp)} <br>⚠️ (Pendapatan Neto di bawah Batas PTKP, maka nominal PKP disetel menjadi Rp0)</span>`;
+            } else {
+                document.getElementById('rincian_pkp_angka').innerText = 
+                    `Perhitungan: Rp${formatNumberWithDots(netoSetahun)} (Neto) - Rp${formatNumberWithDots(nilaiPtkp)} (PTKP) = Rp${formatNumberWithDots(hasilPenguranganNetoPtkp)}`;
+            }
 
-            // D. Hitung Lapisan Progresif Pasal 17
+            // D. Hitung Logika Progresif Akurat (UU HPP Batas Absolut)
             let sisaPkp = pkpSetahun;
-            const lapisan = [
-                { tarif: 0.05, batas: 60000000 },
-                { tarif: 0.15, batas: 190000000 },
-                { tarif: 0.25, batas: 250000000 },
-                { tarif: 0.30, batas: 4500000000 },
-                { tarif: 0.35, batas: Infinity }
-            ];
+            let dpp1 = Math.min(sisaPkp, 60000000); sisaPkp -= dpp1;
+            let dpp2 = Math.min(sisaPkp, 190000000); sisaPkp -= dpp2;
+            let dpp3 = Math.min(sisaPkp, 250000000); sisaPkp -= dpp3;
+            let dpp4 = Math.min(sisaPkp, 4500000000); sisaPkp -= dpp4;
+            let dpp5 = Math.max(sisaPkp, 0);
 
-            let totalPajakProgresifSetahun = 0;
-            lapisan.forEach((lap, index) => {
-                let dpp = 0;
-                if (sisaPkp > 0) {
-                    dpp = Math.min(sisaPkp, lap.batas);
-                    sisaPkp -= dpp;
-                }
-                let pajak = dpp * lap.tarif;
-                totalPajakProgresifSetahun += pajak;
+            let pajak1 = dpp1 * 0.05;
+            let pajak2 = dpp2 * 0.15;
+            let pajak3 = dpp3 * 0.25;
+            let pajak4 = dpp4 * 0.30;
+            let pajak5 = dpp5 * 0.35;
 
-                document.getElementById(`dpp${index + 1}`).innerText = formatNumberWithDots(dpp);
-                document.getElementById(`pajak${index + 1}`).innerText = formatNumberWithDots(pajak);
-            });
+            let totalPajakProgresifSetahun = pajak1 + pajak2 + pajak3 + pajak4 + pajak5;
+
+            document.getElementById("dpp1").innerText = formatNumberWithDots(dpp1);
+            document.getElementById("pajak1").innerText = formatNumberWithDots(pajak1);
+            document.getElementById("dpp2").innerText = formatNumberWithDots(dpp2);
+            document.getElementById("pajak2").innerText = formatNumberWithDots(pajak2);
+            document.getElementById("dpp3").innerText = formatNumberWithDots(dpp3);
+            document.getElementById("pajak3").innerText = formatNumberWithDots(pajak3);
+            document.getElementById("dpp4").innerText = formatNumberWithDots(dpp4);
+            document.getElementById("pajak4").innerText = formatNumberWithDots(pajak4);
+            document.getElementById("dpp5").innerText = formatNumberWithDots(dpp5);
+            document.getElementById("pajak5").innerText = formatNumberWithDots(pajak5);
+
             document.getElementById('total_pajak_tahunan').innerText = 'Rp ' + formatNumberWithDots(totalPajakProgresifSetahun);
 
-            // E. Hitung Potongan TER Masa (Jan - Nov)
-            const brutoBulanan = brutoSetahun / 12;
-            const tarifTER = dapatkanTarifTER(kategoriTER, brutoBulanan);
-            const pajakTERPerBulan = brutoBulanan * tarifTER;
+            // E. Hitung Potongan TER Masa (Jan - Nov Berdasarkan Gaji Bulanan Nyata)
+            const tarifTER = dapatkanTarifTER(kategoriTER, gajiBulanan);
+            const pajakTERPerBulan = gajiBulanan * tarifTER;
             const totalTER11Bulan = pajakTERPerBulan * 11;
 
-            document.getElementById('bruto_bulanan_display').innerText = 'Rp ' + formatNumberWithDots(brutoBulanan);
+            document.getElementById('bruto_bulanan_display').innerText = 'Rp ' + formatNumberWithDots(gajiBulanan);
             document.getElementById('tarif_ter_display').innerText = (tarifTER * 100).toFixed(2) + '%';
             document.getElementById('pajak_ter_bulanan_display').innerText = 'Rp ' + formatNumberWithDots(pajakTERPerBulan);
             document.getElementById('total_ter_11bulan').innerText = 'Rp ' + formatNumberWithDots(totalTER11Bulan);
@@ -430,7 +470,7 @@
             if (brutoSetahun === 0) {
                 kesimpulanBox.className = "p-5 rounded-xl border border-amber-300 bg-amber-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-amber-900";
                 kesimpulanStatus.innerText = "Data Kosong";
-                kesimpulanDeskripsi.innerText = "Silakan masukkan angka Pendapatan Bruto Anda pada kolom kiri.";
+                kesimpulanDeskripsi.innerText = "Silakan masukkan angka Gaji Bulanan Anda pada kolom input.";
                 kesimpulanNominal.innerText = "Rp 0";
                 return;
             }
@@ -438,22 +478,21 @@
             const selisihDesember = totalPajakProgresifSetahun - totalTER11Bulan;
 
             if (selisihDesember >= 0) {
-                // Kurang Bayar (Potongan normal Masa Desember)
                 kesimpulanBox.className = "p-5 rounded-xl border border-orange-300 bg-orange-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-orange-900 shadow-sm";
                 kesimpulanStatus.innerText = "Status: Kurang Bayar (Potongan Desember)";
-                kesimpulanDeskripsi.innerText = "Bagus! Ini adalah nominal sisa yang wajib dipotong dari slip gaji Anda khusus pada bulan Desember agar akumulasi setahun genap.";
+                kesimpulanDeskripsi.innerText = "Ini adalah sisa nominal akhir tahun yang wajib dipotong dari slip gaji Anda khusus pada bulan Desember agar hitungan setahun sesuai regulasi UU HPP.";
                 kesimpulanNominal.innerText = "Rp " + formatNumberWithDots(selisihDesember);
             } else {
-                // Lebih Bayar
                 kesimpulanBox.className = "p-5 rounded-xl border border-emerald-300 bg-emerald-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-emerald-900 shadow-sm";
                 kesimpulanStatus.innerText = "Status: Lebih Bayar (Wajib Dikembalikan)";
-                kesimpulanDeskripsi.innerText = "Pajak Anda yang sudah dipotong melalui metode TER selama 11 bulan ternyata melebihi kalkulasi final Pasal 17. Perusahaan wajib mengembalikan uang ini ke Anda.";
+                kesimpulanDeskripsi.innerText = "Potongan TER bulanan (Jan-Nov) Anda melebihi kalkulasi total Pasal 17 setahun. Pihak perusahaan/pemotong kerja wajib mengembalikan kelebihan uang ini kepada Anda.";
                 kesimpulanNominal.innerText = "Rp " + formatNumberWithDots(Math.abs(selisihDesember));
             }
         }
 
-        // Set nilai standar awal saat halaman web dimuat
-        document.getElementById('bruto_input').value = "0";
+        // Set Nilai Default
+        document.getElementById('gaji_bulanan_input').value = "0";
+        document.getElementById('bonus_tahunan_input').value = "0";
         document.getElementById('iuran_pensiun_input').value = "0";
         jalankanKalkulasi();
     </script>
