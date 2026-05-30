@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator PPh Pasal 21 - UU HPP</title>
+    <title>Kalkulator PPh Pasal 21 - Progresif & TER</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-50 text-gray-800 min-h-screen py-8 px-4">
 
     <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100">
-        <div class="bg-blue-600 text-white p-6 text-center">
-            <h1 class="text-2xl font-bold uppercase tracking-wide">Perhitungan Pajak Penghasilan (PPh) Pasal 21</h1>
-            <p class="text-sm text-blue-100 mt-1">Berdasarkan UU HPP No. 7 Tahun 2021 | Tarif Progresif Otomatis</p>
+        <div class="bg-blue-700 text-white p-6 text-center">
+            <h1 class="text-2xl font-bold uppercase tracking-wide">Kalkulator PPh Pasal 21 (UU HPP & TER)</h1>
+            <p class="text-sm text-blue-100 mt-1">Simulasi Perhitungan Progresif Pasal 17 dan Tarif Efektif Rata-Rata (PP 58/2023)</p>
         </div>
 
         <div class="p-6 space-y-8">
@@ -24,7 +24,7 @@
                         <label class="block text-sm font-medium text-gray-600 mb-1">Penghasilan Bruto (Setahun)</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 text-sm">Rp</span>
-                            <input type="number" id="bruto" value="0" class="w-full pl-10 pr-3 py-2 border border-blue-400 bg-blue-50/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold" placeholder="0">
+                            <input type="text" id="bruto_input" class="w-full pl-10 pr-3 py-2 border border-blue-400 bg-blue-50/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold" placeholder="0">
                         </div>
                         <span class="text-xs text-gray-400 mt-1 block">■ Input manual (wajib diisi)</span>
                     </div>
@@ -41,7 +41,7 @@
                         <label class="block text-sm font-medium text-gray-600 mb-1">Iuran Pensiun / BPJS TK (Setahun)</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 text-sm">Rp</span>
-                            <input type="number" id="iuran_pensiun" value="0" class="w-full pl-10 pr-3 py-2 border border-blue-400 bg-blue-50/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold" placeholder="0">
+                            <input type="text" id="iuran_pensiun_input" class="w-full pl-10 pr-3 py-2 border border-blue-400 bg-blue-50/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold" placeholder="0">
                         </div>
                     </div>
 
@@ -61,26 +61,29 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-600 mb-1">Status PTKP</label>
                             <select id="status_ptkp" class="w-full px-3 py-2 border border-blue-400 bg-blue-50/50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold text-gray-700">
-                                <option value="54000000" selected>TK/0 - Tidak Kawin, 0 Tanggungan</option>
-                                <option value="58500000">TK/1 - Tidak Kawin, 1 Tanggungan</option>
-                                <option value="63000000">TK/2 - Tidak Kawin, 2 Tanggungan</option>
-                                <option value="67500000">TK/3 - Tidak Kawin, 3 Tanggungan</option>
-                                <option value="58500000">K/0 - Kawin, 0 Tanggungan</option>
-                                <option value="63000000">K/1 - Kawin, 1 Tanggungan</option>
-                                <option value="67500000">K/2 - Kawin, 2 Tanggungan</option>
-                                <option value="72000000">K/3 - Kawin, 3 Tanggungan</option>
-                                <option value="112500000">K/I/0 - Kawin, Istri Bekerja, 0 Tanggungan</option>
-                                <option value="117000000">K/I/1 - Kawin, Istri Bekerja, 1 Tanggungan</option>
-                                <option value="121500000">K/I/2 - Kawin, Istri Bekerja, 2 Tanggungan</option>
-                                <option value="126000000">K/I/3 - Kawin, Istri Bekerja, 3 Tanggungan</option>
+                                <option value="54000000" data-kategori="A" selected>TK/0 - Kategori TER A</option>
+                                <option value="58500000" data-kategori="A">TK/1 - Kategori TER A</option>
+                                <option value="63000000" data-kategori="B">TK/2 - Kategori TER B</option>
+                                <option value="67500000" data-kategori="B">TK/3 - Kategori TER B</option>
+                                <option value="58500000" data-kategori="A">K/0 - Kategori TER A</option>
+                                <option value="63000000" data-kategori="B">K/1 - Kategori TER B</option>
+                                <option value="67500000" data-kategori="B">K/2 - Kategori TER B</option>
+                                <option value="72000000" data-kategori="C">K/3 - Kategori TER C</option>
+                                <option value="112500000" data-kategori="A">K/I/0 - Kategori TER A</option>
+                                <option value="117000000" data-kategori="A">K/I/1 - Kategori TER A</option>
+                                <option value="121500000" data-kategori="B">K/I/2 - Kategori TER B</option>
+                                <option value="126000000" data-kategori="B">K/I/3 - Kategori TER B</option>
                             </select>
                         </div>
 
-                        <div>
-                            <label class="block text-sm font-medium text-gray-600 mb-1">Nilai PTKP</label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 text-sm">Rp</span>
-                                <input type="text" id="nilai_ptkp" value="54.000.000" disabled class="w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-100 rounded-md font-medium text-gray-600">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-1">Nilai PTKP</label>
+                                <input type="text" id="nilai_ptkp" disabled class="w-full px-3 py-2 border border-gray-300 bg-gray-100 rounded-md font-medium text-gray-600">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-1">Kategori TER</label>
+                                <input type="text" id="kategori_ter_display" disabled class="w-full px-3 py-2 border border-gray-300 bg-blue-100 text-blue-700 font-bold rounded-md text-center">
                             </div>
                         </div>
                     </div>
@@ -88,12 +91,11 @@
                     <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 space-y-4">
                         <h2 class="text-lg font-semibold text-gray-700 border-b pb-2 border-gray-300">C. Penghasilan Kena Pajak (PKP)</h2>
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">Penghasilan Kena Pajak</label>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Penghasilan Kena Pajak (Tahunan)</label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-700 font-bold text-sm">Rp</span>
                                 <input type="text" id="pkp" value="0" disabled class="w-full pl-10 pr-3 py-2 border border-orange-300 bg-orange-50 rounded-md font-bold text-orange-700">
                             </div>
-                            <span class="text-xs text-gray-400 mt-1 block">Neto - PTKP (min. 0)</span>
                         </div>
                     </div>
                 </div>
@@ -101,7 +103,7 @@
             </div>
 
             <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                <h2 class="text-lg font-semibold text-gray-700 border-b pb-4 border-gray-300 mb-4">D. Perhitungan Tarif Progresif (UU HPP)</h2>
+                <h2 class="text-lg font-semibold text-gray-700 border-b pb-4 border-gray-300 mb-4">D. Perhitungan Tarif Progresif Akhir Tahun (Pasal 17 UU HPP)</h2>
                 
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse text-sm">
@@ -159,16 +161,42 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg flex justify-between items-center">
+                    <span class="font-bold text-gray-700">TOTAL SEHARUSNYA TERUTANG (AHLI TAHUN):</span>
+                    <span id="total_pajak_tahunan" class="text-xl font-extrabold text-blue-700">Rp0</span>
+                </div>
+            </div>
 
-                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-gray-200">
-                    <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg flex justify-between items-center">
-                        <span class="font-bold text-gray-700 text-sm md:text-base">TOTAL PPh 21 TERUTANG (SETAHUN)</span>
-                        <span id="total_pajak_tahunan" class="text-xl font-extrabold text-blue-700">Rp0</span>
+            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 space-y-4">
+                <h2 class="text-lg font-semibold text-gray-700 border-b pb-2 border-gray-300">E. Simulasi Pemotongan Masa Masa (Januari - November via TER)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-white p-3 rounded border border-gray-200">
+                        <span class="text-gray-500 block">Estimasi Bruto / Bulan:</span>
+                        <span id="bruto_bulanan_display" class="font-bold text-base text-gray-800">Rp0</span>
                     </div>
-                    <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-lg flex justify-between items-center">
-                        <span class="font-bold text-gray-700 text-sm md:text-base">Pajak PPh 21 Per Bulan (÷12)</span>
-                        <span id="total_pajak_bulanan" class="text-xl font-extrabold text-indigo-700">Rp0</span>
+                    <div class="bg-white p-3 rounded border border-gray-200">
+                        <span class="text-gray-500 block">Tarif Efektif (TER):</span>
+                        <span id="tarif_ter_display" class="font-bold text-base text-indigo-600">0%</span>
                     </div>
+                    <div class="bg-white p-3 rounded border border-gray-200">
+                        <span class="text-gray-500 block">Potongan Pajak / Bulan:</span>
+                        <span id="pajak_ter_bulanan_display" class="font-bold text-base text-gray-800">Rp0</span>
+                    </div>
+                </div>
+                <div class="p-4 bg-indigo-50 border border-indigo-100 rounded-lg flex justify-between items-center text-sm">
+                    <span class="font-semibold text-indigo-900">Total Telah Dipotong TER (Januari - November [11 Bulan]):</span>
+                    <span id="total_ter_11bulan" class="font-bold text-base text-indigo-700">Rp0</span>
+                </div>
+            </div>
+
+            <div id="kesimpulan_box" class="p-6 rounded-xl border flex flex-col md:flex-row justify-between items-start md:items-center gap-4 transition-all duration-300">
+                <div>
+                    <h2 class="text-xl font-bold uppercase tracking-wide" id="kesimpulan_status">Kurang/Lebih Bayar</h2>
+                    <p class="text-sm mt-1" id="kesimpulan_deskripsi">Menunggu kalkulasi data pemasukan...</p>
+                </div>
+                <div class="text-right w-full md:w-auto border-t md:border-t-0 pt-3 md:pt-0">
+                    <span class="text-xs uppercase block font-semibold text-gray-500">Nominal Selisih (Masa Desember):</span>
+                    <span id="kesimpulan_nominal" class="text-3xl font-black block">Rp0</span>
                 </div>
             </div>
 
@@ -176,43 +204,168 @@
     </div>
 
     <script>
-        const formatRupiah = (angka) => {
-            return new Intl.NumberFormat('id-ID', { minimumFractionDigits: 0 }).format(angka);
-        };
+        // Array Data Mini TER Kategori A, B, C (Sesuai PP 58/2023)
+        // Disederhanakan untuk keperluan kalkulasi otomatis range umum karyawan biasa
+        function dapatkanTarifTER(kategori, brutoBulanan) {
+            if (brutoBulanan <= 5400000) return 0;
+            
+            if (kategori === "A") {
+                if (brutoBulanan <= 5400000) return 0;
+                if (brutoBulanan <= 5650000) return 0.0025;
+                if (brutoBulanan <= 5950000) return 0.005;
+                if (brutoBulanan <= 6300000) return 0.0075;
+                if (brutoBulanan <= 6750000) return 0.01;
+                if (brutoBulanan <= 7500000) return 0.0125;
+                if (brutoBulanan <= 8550000) return 0.015;
+                if (brutoBulanan <= 9650000) return 0.02;
+                if (brutoBulanan <= 10650000) return 0.025;
+                if (brutoBulanan <= 12150000) return 0.03;
+                if (brutoBulanan <= 13650000) return 0.035;
+                if (brutoBulanan <= 15150000) return 0.04;
+                if (brutoBulanan <= 16950000) return 0.05;
+                if (brutoBulanan <= 19450000) return 0.06;
+                if (brutoBulanan <= 22650000) return 0.07;
+                if (brutoBulanan <= 26150000) return 0.08;
+                if (brutoBulanan <= 30350000) return 0.09;
+                if (brutoBulanan <= 35250000) return 0.10;
+                if (brutoBulanan <= 41250000) return 0.11;
+                if (brutoBulanan <= 49050000) return 0.12;
+                if (brutoBulanan <= 58350000) return 0.13;
+                if (brutoBulanan <= 70450000) return 0.14;
+                if (brutoBulanan <= 86650000) return 0.15;
+                if (brutoBulanan <= 109350000) return 0.19;
+                if (brutoBulanan <= 145950000) return 0.21;
+                if (brutoBulanan <= 225150000) return 0.22;
+                if (brutoBulanan <= 362450000) return 0.23;
+                if (brutoBulanan <= 543750000) return 0.24;
+                if (brutoBulanan <= 1218750000) return 0.31;
+                if (brutoBulanan <= 1410750000) return 0.32;
+                return 0.34;
+            } else if (kategori === "B") {
+                if (brutoBulanan <= 6200000) return 0;
+                if (brutoBulanan <= 6500000) return 0.0025;
+                if (brutoBulanan <= 6850000) return 0.005;
+                if (brutoBulanan <= 7300000) return 0.0075;
+                if (brutoBulanan <= 7800000) return 0.01;
+                if (brutoBulanan <= 8850000) return 0.0125;
+                if (brutoBulanan <= 9850000) return 0.015;
+                if (brutoBulanan <= 10900000) return 0.02;
+                if (brutoBulanan <= 11900000) return 0.025;
+                if (brutoBulanan <= 13500000) return 0.03;
+                if (brutoBulanan <= 15100000) return 0.035;
+                if (brutoBulanan <= 16850000) return 0.04;
+                if (brutoBulanan <= 18450000) return 0.05;
+                if (brutoBulanan <= 21050000) return 0.06;
+                if (brutoBulanan <= 24350000) return 0.07;
+                if (brutoBulanan <= 27950000) return 0.08;
+                if (brutoBulanan <= 32150000) return 0.09;
+                if (brutoBulanan <= 37150000) return 0.10;
+                if (brutoBulanan <= 43350000) return 0.11;
+                if (brutoBulanan <= 51250000) return 0.12;
+                if (brutoBulanan <= 60750000) return 0.13;
+                if (brutoBulanan <= 72950000) return 0.14;
+                if (brutoBulanan <= 89350000) return 0.15;
+                if (brutoBulanan <= 112150000) return 0.19;
+                if (brutoBulanan <= 149350000) return 0.21;
+                if (brutoBulanan <= 230050000) return 0.22;
+                if (brutoBulanan <= 370150000) return 0.23;
+                if (brutoBulanan <= 555350000) return 0.24;
+                if (brutoBulanan <= 1244850000) return 0.31;
+                if (brutoBulanan <= 1440850000) return 0.32;
+                return 0.34;
+            } else if (kategori === "C") {
+                if (brutoBulanan <= 6600000) return 0;
+                if (brutoBulanan <= 6950000) return 0.0025;
+                if (brutoBulanan <= 7350000) return 0.005;
+                if (brutoBulanan <= 7800000) return 0.0075;
+                if (brutoBulanan <= 8300000) return 0.01;
+                if (brutoBulanan <= 9350000) return 0.0125;
+                if (brutoBulanan <= 10350000) return 0.015;
+                if (brutoBulanan <= 11350000) return 0.02;
+                if (brutoBulanan <= 12400000) return 0.025;
+                if (brutoBulanan <= 14100000) return 0.03;
+                if (brutoBulanan <= 15700000) return 0.035;
+                if (brutoBulanan <= 17450000) return 0.04;
+                if (brutoBulanan <= 19150000) return 0.05;
+                if (brutoBulanan <= 21750000) return 0.06;
+                if (brutoBulanan <= 25050000) return 0.07;
+                if (brutoBulanan <= 28650000) return 0.08;
+                if (brutoBulanan <= 32950000) return 0.09;
+                if (brutoBulanan <= 37950000) return 0.10;
+                if (brutoBulanan <= 44150000) return 0.11;
+                if (brutoBulanan <= 52150000) return 0.12;
+                if (brutoBulanan <= 61650000) return 0.13;
+                if (brutoBulanan <= 73950000) return 0.14;
+                if (brutoBulanan <= 90450000) return 0.15;
+                if (brutoBulanan <= 113450000) return 0.19;
+                if (brutoBulanan <= 151050000) return 0.21;
+                if (brutoBulanan <= 232550000) return 0.22;
+                if (brutoBulanan <= 374050000) return 0.23;
+                if (brutoBulanan <= 561250000) return 0.24;
+                if (brutoBulanan <= 1257750000) return 0.31;
+                if (brutoBulanan <= 1455750000) return 0.32;
+                return 0.34;
+            }
+            return 0;
+        }
 
-        const hitungPajak = () => {
-            // Get inputs
-            const bruto = parseFloat(document.getElementById('bruto').value) || 0;
-            const iuranPensiun = parseFloat(document.getElementById('iuran_pensiun').value) || 0;
-            const nilaiPtkp = parseFloat(document.getElementById('status_ptkp').value) || 0;
+        // Fungsi manipulasi Masking Ribuan (Titik)
+        function formatNumberWithDots(number) {
+            return new Intl.NumberFormat('id-ID', { minimumFractionDigits: 0 }).format(number);
+        }
 
-            // Update UI Nilai PTKP
-            document.getElementById('nilai_ptkp').value = formatRupiah(nilaiPtkp);
+        function parseNumberFromDots(string) {
+            return parseFloat(string.replace(/\./g, '')) || 0;
+        }
 
-            // Perhitungan Biaya Jabatan (5% maks 6.000.000)
-            const biayaJabatan = Math.min(bruto * 0.05, 6000000);
-            document.getElementById('biaya_jabatan').value = formatRupiah(biayaJabatan);
+        function handleInputMasking(e) {
+            let rawValue = e.target.value.replace(/\D/g, '');
+            if(rawValue === '') rawValue = '0';
+            let parsed = parseFloat(rawValue);
+            e.target.value = formatNumberWithDots(parsed);
+            hitungUlangPajak();
+        }
 
-            // Perhitungan Neto
-            const neto = bruto - biayaJabatan - iuranPensiun;
-            document.getElementById('neto').value = formatRupiah(neto);
+        // Setup Event Listener
+        document.getElementById('bruto_input').addEventListener('input', handleInputMasking);
+        document.getElementById('iuran_pensiun_input').addEventListener('input', handleInputMasking);
+        document.getElementById('status_ptkp').addEventListener('change', hitungUlangPajak);
 
-            // Perhitungan PKP (min 0)
-            const pkp = Math.max(neto - nilaiPtkp, 0);
-            document.getElementById('pkp').value = formatRupiah(pkp);
+        function hitungUlangPajak() {
+            // Ambil data murni angka dari input bertitik
+            const brutoSetahun = parseNumberFromDots(document.getElementById('bruto_input').value);
+            const iuranPensiun = parseNumberFromDots(document.getElementById('iuran_pensiun_input').value);
+            
+            // Get data PTKP & Kategori TER
+            const ptkpSelect = document.getElementById('status_ptkp');
+            const nilaiPtkp = parseFloat(ptkpSelect.value);
+            const kategoriTER = ptkpSelect.options[ptkpSelect.selectedIndex].getAttribute('data-kategori');
 
-            // Logika Tarif Progresif Lapisan (Tiering)
-            let sisaPkp = pkp;
+            document.getElementById('nilai_ptkp').value = formatNumberWithDots(nilaiPtkp);
+            document.getElementById('kategori_ter_display').value = "Kategori " + kategoriTER;
+
+            // 1. Hitung Biaya Jabatan (5% max 6.000.000)
+            const biayaJabatan = Math.min(brutoSetahun * 0.05, 6000000);
+            document.getElementById('biaya_jabatan').value = formatNumberWithDots(biayaJabatan);
+
+            // 2. Hitung Neto & PKP
+            const netoSetahun = brutoSetahun - biayaJabatan - iuranPensiun;
+            document.getElementById('neto').value = formatNumberWithDots(netoSetahun);
+
+            const pkpSetahun = Math.max(netoSetahun - nilaiPtkp, 0);
+            document.getElementById('pkp').value = formatNumberWithDots(pkpSetahun);
+
+            // 3. Hitung Progresif Tahunan Pasal 17
+            let sisaPkp = pkpSetahun;
             const lapisan = [
                 { tarif: 0.05, batas: 60000000 },
-                { tarif: 0.15, batas: 190000000 },  // 250jt - 60jt
-                { tarif: 0.25, batas: 250000000 },  // 500jt - 250jt
-                { tarif: 0.30, batas: 4500000000 }, // 5M - 500jt
+                { tarif: 0.15, batas: 190000000 },
+                { tarif: 0.25, batas: 250000000 },
+                { tarif: 0.30, batas: 4500000000 },
                 { tarif: 0.35, batas: Infinity }
             ];
 
-            let totalPajakTahunan = 0;
-
+            let totalPajakProgresifSetahun = 0;
             lapisan.forEach((lap, index) => {
                 let dpp = 0;
                 if (sisaPkp > 0) {
@@ -220,25 +373,59 @@
                     sisaPkp -= dpp;
                 }
                 let pajak = dpp * lap.tarif;
-                totalPajakTahunan += pajak;
+                totalPajakProgresifSetahun += pajak;
 
-                // Update row data di tabel
-                document.getElementById(`dpp${index + 1}`).innerText = formatRupiah(dpp);
-                document.getElementById(`pajak${index + 1}`).innerText = formatRupiah(pajak);
+                document.getElementById(`dpp${index + 1}`).innerText = formatNumberWithDots(dpp);
+                document.getElementById(`pajak${index + 1}`).innerText = formatNumberWithDots(pajak);
             });
+            document.getElementById('total_pajak_tahunan').innerText = 'Rp ' + formatNumberWithDots(totalPajakProgresifSetahun);
 
-            // Update Total Hasil
-            document.getElementById('total_pajak_tahunan').innerText = 'Rp ' + formatRupiah(totalPajakTahunan);
-            document.getElementById('total_pajak_bulanan').innerText = 'Rp ' + formatRupiah(totalPajakTahunan / 12);
-        };
+            // 4. Hitung TER Masa (Januari - November)
+            const brutoBulanan = brutoSetahun / 12;
+            const tarifTER = dapatkanTarifTER(kategoriTER, brutoBulanan);
+            const pajakTERPerBulan = brutoBulanan * tarifTER;
+            const totalTER11Bulan = pajakTERPerBulan * 11;
 
-        // Event listener untuk auto-update saat user mengetik / mengganti opsi
-        document.getElementById('bruto').addEventListener('input', hitungPajak);
-        document.getElementById('iuran_pensiun').addEventListener('input', hitungPajak);
-        document.getElementById('status_ptkp').addEventListener('change', hitungPajak);
+            document.getElementById('bruto_bulanan_display').innerText = 'Rp ' + formatNumberWithDots(brutoBulanan);
+            document.getElementById('tarif_ter_display').innerText = (tarifTER * 100).toFixed(2) + '%';
+            document.getElementById('pajak_ter_bulanan_display').innerText = 'Rp ' + formatNumberWithDots(pajakTERPerBulan);
+            document.getElementById('total_ter_11bulan').innerText = 'Rp ' + formatNumberWithDots(totalTER11Bulan);
 
-        // Jalankan kalkulator pertama kali saat web dibuka
-        hitungPajak();
+            // 5. Kesimpulan & Penentuan Pajak Akhir Bulan Desember (Selisih)
+            const kesimpulanBox = document.getElementById('kesimpulan_box');
+            const kesimpulanStatus = document.getElementById('kesimpulan_status');
+            const kesimpulanDeskripsi = document.getElementById('kesimpulan_deskripsi');
+            const kesimpulanNominal = document.getElementById('kesimpulan_nominal');
+
+            if (brutoSetahun === 0) {
+                kesimpulanBox.className = "p-6 rounded-xl border border-gray-200 bg-gray-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4";
+                kesimpulanStatus.innerText = "Data Kosong";
+                kesimpulanDeskripsi.innerText = "Masukkan nominal Penghasilan Bruto untuk melihat hasil analisa.";
+                kesimpulanNominal.innerText = "Rp 0";
+                return;
+            }
+
+            const selisihDesember = totalPajakProgresifSetahun - totalTER11Bulan;
+
+            if (selisihDesember >= 0) {
+                // Kurang Bayar (Normal terjadi pada pemotongan Masa Desember)
+                kesimpulanBox.className = "p-6 rounded-xl border border-orange-200 bg-orange-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-orange-900";
+                kesimpulanStatus.innerText = "Kurang Bayar (Potongan Desember)";
+                kesimpulanDeskripsi.innerText = "Nilai yang wajib dipotong oleh perusahaan dari gaji Anda khusus pada bulan Desember agar klop dengan Pasal 17.";
+                kesimpulanNominal.innerText = "Rp " + formatNumberWithDots(selisihDesember);
+            } else {
+                // Lebih Bayar (Bisa terjadi jika tengah tahun pendapatan drop drastis)
+                kesimpulanBox.className = "p-6 rounded-xl border border-emerald-200 bg-emerald-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-emerald-900";
+                kesimpulanStatus.innerText = "Lebih Bayar (Akan Dikembalikan)";
+                kesimpulanDeskripsi.innerText = "Pajak yang dipotong via TER 11 bulan kelebihan dibanding setahunnya. Perusahaan wajib mengembalikan selisih ini ke pegawai.";
+                kesimpulanNominal.innerText = "Rp " + formatNumberWithDots(Math.abs(selisihDesember));
+            }
+        }
+
+        // Jalankan inisialisasi awal agar tampilan default rapi
+        document.getElementById('bruto_input').value = "0";
+        document.getElementById('iuran_pensiun_input').value = "0";
+        hitungUlangPajak();
     </script>
 </body>
 </html>
